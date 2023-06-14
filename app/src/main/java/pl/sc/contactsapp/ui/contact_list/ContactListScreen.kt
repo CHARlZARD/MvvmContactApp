@@ -1,5 +1,6 @@
 package pl.sc.contactsapp.ui.contact_list
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -22,6 +23,7 @@ import kotlinx.coroutines.flow.collect
 import pl.sc.contactsapp.util.UiEvent
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ContactListScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,

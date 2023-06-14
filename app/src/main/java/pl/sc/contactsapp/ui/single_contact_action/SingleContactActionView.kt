@@ -1,5 +1,6 @@
 package pl.sc.contactsapp.ui.single_contact_action
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -35,6 +36,7 @@ import pl.sc.contactsapp.ui.single_contact_action.SingleContactActionEvent.*
 import pl.sc.contactsapp.util.UiEvent
 import kotlin.random.Random
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SingleContactActionView(
     onNavigate: (UiEvent.Navigate) -> Unit,
@@ -84,10 +86,9 @@ fun SingleContactActionView(
                                 Random.nextInt(0, 255)
                             )
                         )
-                        .aspectRatio(1f)
-                        .width(50.dp)
-                        .height(20.dp)
-                        .padding(8.dp)
+                        .width(100.dp)
+                        .height(100.dp)
+                        .padding(10.dp)
                 )
             }
                 Spacer(modifier = Modifier.height(10.dp))
