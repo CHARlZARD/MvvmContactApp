@@ -1,10 +1,11 @@
 # MvvmContactApp
-Simple CRUD
-Function:
+Simple CRUD to save contacts  
+Features:  
 - Add, delete, edit contacts
-- Call and SMS options 
+- Making calls
+- sending SMS
 
-### What i used in project:
+### What I used in the project:
 - Jetpack Compose
-- Dagger Hilt
+- Dagger handle
 - Room
