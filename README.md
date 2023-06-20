@@ -5,7 +5,7 @@ Features:
 - Making calls
 - sending SMS
 
-### What I used in the project:
+### What technology I used in the project:
 - Jetpack Compose
 - Dagger handle
 - Room
