@@ -8,5 +8,5 @@ Simple CRUD to save contacts
 
 ### What technology I used in the project:
 - Jetpack Compose
-- Dagger handle
+- Dagger hilt
 - Room
