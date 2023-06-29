@@ -1,6 +1,7 @@
 # MvvmContactApp
 Simple CRUD to save contacts  
-Features:  
+
+### Features:  
 - Add, delete, edit contacts
 - Making calls
 - sending SMS
