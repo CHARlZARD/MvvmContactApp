@@ -1,6 +1,5 @@
 package pl.sc.contactsapp.data
 
-import androidx.compose.ui.graphics.Color
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,5 +9,8 @@ data class Contact(
     val lastName: String?,
     val phoneNumber: String,
     val email: String?,
+    val iconColorR: Int,
+    val iconColorG: Int,
+    val iconColorB: Int,
     @PrimaryKey val id: Int? = null
 )

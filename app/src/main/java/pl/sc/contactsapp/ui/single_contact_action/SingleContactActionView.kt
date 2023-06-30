@@ -2,10 +2,10 @@ package pl.sc.contactsapp.ui.single_contact_action
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,12 +29,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import kotlinx.coroutines.flow.collect
 import pl.sc.contactsapp.data.Contact
 import pl.sc.contactsapp.ui.contact_list.ContactIcon
 import pl.sc.contactsapp.ui.single_contact_action.SingleContactActionEvent.*
 import pl.sc.contactsapp.util.UiEvent
-import kotlin.random.Random
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -69,46 +67,47 @@ fun SingleContactActionView(
             modifier = Modifier,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(60.dp))
             Row(
-                modifier = Modifier
-                    .height(80.dp)
+            modifier = Modifier
                     .fillMaxSize()
-                    .weight(1f)
+                    .weight(1f),
+            Arrangement.Center,
             ) {
                 ContactIcon(
                     symbol = contact.firstName[0].toString().uppercase(),
                     modifier = Modifier
                         .background(
                             Color(
-                                Random.nextInt(0, 255),
-                                Random.nextInt(0, 255),
-                                Random.nextInt(0, 255),
-                                Random.nextInt(0, 255)
+                                contact.iconColorR,
+                                contact.iconColorG,
+                                contact.iconColorB,
                             )
                         )
-                        .width(100.dp)
-                        .height(100.dp)
+                        .width(130.dp)
+                        .height(130.dp)
                         .padding(10.dp)
                 )
             }
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    text = "${contact.firstName} ${contact.lastName}",
-                    fontSize = 25.sp,
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = contact.phoneNumber,
-                    fontSize = 20.sp,
-                    color = Color.Black
-                )
-                Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = "${contact.firstName} ${contact.lastName}",
+                fontSize = 25.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = contact.phoneNumber,
+                fontSize = 20.sp,
+                color = Color.Black
+            )
+            Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier
                     .fillMaxSize()
-                    .weight(1f)
+                    .weight(1f),
+                Arrangement.Center,
             ) {
                 val context = LocalContext.current
                 Button(
@@ -141,7 +140,6 @@ fun SingleContactActionView(
                     )
                 }
             }
-
         }
     }
 }

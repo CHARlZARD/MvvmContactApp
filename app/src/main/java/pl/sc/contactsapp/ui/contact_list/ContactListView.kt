@@ -19,7 +19,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import kotlinx.coroutines.flow.collect
 import pl.sc.contactsapp.util.UiEvent
 
 

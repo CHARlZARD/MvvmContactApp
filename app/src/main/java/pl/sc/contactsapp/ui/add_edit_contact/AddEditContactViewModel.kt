@@ -3,7 +3,6 @@ package pl.sc.contactsapp.ui.add_edit_contact
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -43,7 +42,7 @@ class AddEditContactViewModel @Inject constructor(
 
     init {
         val contactId =
-            safeStateHandle.get<Int>("contactId")!! //jeżeli kontak już istnieje to chcemy se go załadować
+            safeStateHandle.get<Int>("contactId")!!
         if (contactId != -1) {
             viewModelScope.launch {
                 repository.getContactById(contactId)?.let { contact ->
@@ -95,6 +94,9 @@ class AddEditContactViewModel @Inject constructor(
                             lastName = lastName,
                             phoneNumber = phoneNumber,
                             email = email,
+                            iconColorR  = Random.nextInt(0, 255),
+                            iconColorG  = Random.nextInt(0, 255),
+                            iconColorB  = Random.nextInt(0, 255),
                             id = contact?.id
                         )
                     )

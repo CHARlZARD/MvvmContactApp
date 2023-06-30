@@ -1,14 +1,11 @@
 package pl.sc.contactsapp.ui.add_edit_contact
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
@@ -21,16 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import pl.sc.contactsapp.util.UiEvent
-import kotlin.random.Random
-import kotlinx.coroutines.flow.collect
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun AddEditContactScreen(
     onPopBackStack: () -> Unit,
@@ -70,6 +62,7 @@ fun AddEditContactScreen(
         ) {
             TextField(
                 value = viewModel.firstName,
+                singleLine = true,
                 placeholder = {
                               Text(text = "First Name")
                 },
@@ -79,6 +72,7 @@ fun AddEditContactScreen(
             Spacer(modifier = Modifier.height(8.dp))
             TextField(
                 value = viewModel.lastName,
+                singleLine = true,
                 placeholder = {
                     Text(text = "Last Name")
                 },
@@ -87,16 +81,18 @@ fun AddEditContactScreen(
                 })
             Spacer(modifier = Modifier.height(8.dp))
             TextField(
+                value = viewModel.phoneNumber,
+                singleLine = true,
                 placeholder = {
                     Text(text = "Phone Number")
                 },
-                value = viewModel.phoneNumber,
                 onValueChange = {
                     viewModel.onEvent(AddEditContactEvent.OnPhoneNumberChange(it))
                 })
             Spacer(modifier = Modifier.height(8.dp))
             TextField(
                 value = viewModel.email,
+                singleLine = true,
                 placeholder = {
                     Text(text = "Email")
                 },
